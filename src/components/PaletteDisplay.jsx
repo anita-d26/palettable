@@ -1,0 +1,1 @@
+// PaletteDisplay.jsx - shows generated color palette

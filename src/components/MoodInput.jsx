@@ -1,0 +1,1 @@
+// MoodInput.jsx - input for mood/description

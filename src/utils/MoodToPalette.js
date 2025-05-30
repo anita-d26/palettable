@@ -1,0 +1,1 @@
+// MoodToPalette.js - maps mood to colors (api)
