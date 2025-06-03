@@ -1,0 +1,63 @@
+/* PaletteType.css */
+.palette-type-container {
+  margin-bottom: 10px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.palette-type-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #444;
+}
+
+.palette-type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.palette-type-item {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 10px;
+  min-width: 110px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.palette-type-item.active {
+  border: 3px solid #6a11cb;
+  background: #f0eaff;
+  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.3);
+}
+
+.palette-type-item:hover:not(.active) {
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.15);
+  background-color: #faf5ff;
+}
+
+.palette-type-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.color-preview {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.color-square {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}

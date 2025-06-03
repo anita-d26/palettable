@@ -1,0 +1,22 @@
+/* PaletteDisplay.css */
+.palette-display-container {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.color-block {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  border: 2px solid #ddd;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.color-block:hover {
+  transform: scale(1.15);
+}
