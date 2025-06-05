@@ -6,7 +6,7 @@ import { getRandomPalette } from "../utils/getRandomPalette";
 import ColorBlock from "../components/ColorBlock";
 import "../styles/PaletteDisplay.css";
 
-export default function PaletteDisplay({ mood, mode, randomTrigger, randomBaseColor }) {
+export default function PaletteDisplay({ mood, mode, randomTrigger, randomBaseColor, onColorsChange }) {
   const [palette, setPalette] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -26,6 +26,11 @@ export default function PaletteDisplay({ mood, mode, randomTrigger, randomBaseCo
         }
 
         setPalette(colors);
+
+        if (onColorsChange) {
+          onColorsChange(colors);
+        }
+
       } catch (err) {
         setError("Failed to load palette");
       } finally {

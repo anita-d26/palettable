@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import PaletteDisplay from "../components/PaletteDisplay";
 import PaletteType from "../components/PaletteType";
+import { savePalette } from "../utils/firebaseUtils";
 import "../styles/HomePage.css";
 import "../styles/NavBar.css";
 
@@ -11,6 +12,9 @@ export default function HomePage() {
   const [mode, setMode] = useState("analogic");
   const [randomBaseColor, setRandomBaseColor] = useState(null);
   const [randomTrigger, setRandomTrigger] = useState(null);
+  const [colors, setColors] = useState([]);
+  const [feedback, setFeedback] = useState("");
+
 
   const modePreviewColors = {
     monochrome: ["#512d38", "#633745", "#755253"],
@@ -37,6 +41,26 @@ export default function HomePage() {
     setRandomBaseColor(randomHex);
     setRandomTrigger(Date.now());
     setMood("");
+  };
+
+  const handleSave = async () => {
+    if (!mood || colors.length === 0) {
+      setFeedback("Please enter a mood and generate a palette first.");
+      return;
+    }
+
+    await savePalette({
+      mood: mood.toLowerCase(),
+      paletteType: mode,
+      hexValues: colors
+    });
+
+    setFeedback("Palette saved! 🎉");
+    setTimeout(() => setFeedback(""), 3000);
+  };
+
+  const handleColorsChange = (newColors) => {
+    setColors(newColors);
   };
 
   return (
@@ -68,6 +92,7 @@ export default function HomePage() {
           mode={mode}
           randomTrigger={randomTrigger}
           randomBaseColor={randomBaseColor}
+          onColorsChange={handleColorsChange}
         />
       </main>
 
