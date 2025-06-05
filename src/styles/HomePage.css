@@ -10,8 +10,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* ====  Mood ===== */
-
+/* Mood input */
 .mood-input {
   padding: 14px 16px;
   width: 100%;
@@ -29,8 +28,7 @@
   box-shadow: 0 6px 20px rgba(101, 116, 255, 0.4);
 }
 
-/* ====  Controls/Randomize Button ===== */
-
+/* controls */
 .controls-wrapper {
   display: flex;
   justify-content: space-between;
@@ -39,6 +37,8 @@
   gap: 1rem;
   margin-bottom: 2rem;
 }
+
+/* button styling */
 
 .controls-wrapper button,
 .randomize-button {
@@ -64,6 +64,7 @@
   transform: scale(0.95);
 }
 
+/* button responsiveness */
 .mood-bar-container {
   display: flex;
   gap: 12px;

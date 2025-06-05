@@ -82,7 +82,9 @@ palettable/
 3. Install dependencies
     npm install
 
-4. Run the development server
+4. Set up Firebase
+
+5. Run the development server
     npm run dev
     Visit http://localhost:5173 to view the app!
 

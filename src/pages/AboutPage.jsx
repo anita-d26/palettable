@@ -2,8 +2,8 @@
 
 const AboutPage = () => {
   return (
-    <main className="bg-[#ffe9f3] text-[#512d38] py-12">
-      <div className="container text-left">
+    <main className="bg-[#ffe9f3] text-[#512d38]">
+      <div className="container">
         <h1 className="text-4xl font-bold mb-6">About Palettable</h1>
 
         <p className="text-lg mb-6">

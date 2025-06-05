@@ -73,8 +73,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="app">
-      <main className="container">
+      <div className="container">
         <div className="mood-bar-container">
           <input
             type="text"
@@ -110,7 +109,6 @@ export default function HomePage() {
           </button>
           {feedback && <p className="feedback-message">{feedback}</p>}
         </div>
-      </main>
       <footer className="footer">© 2025 Anita Daniel</footer>
     </div>
   );

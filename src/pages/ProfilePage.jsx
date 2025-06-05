@@ -28,7 +28,7 @@ export default function Profile() {
   if (loading) return <p>Loading saved palettes...</p>;
 
   return (
-    <div>
+    <div className="container">
       <h2>Saved Palettes</h2>
       <button onClick={clearAll}>Clear All</button>
       {savedPalettes.length === 0 && <p>No saved palettes yet.</p>}
