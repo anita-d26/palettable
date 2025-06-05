@@ -2,33 +2,43 @@
 
 import React, { useState, useEffect } from "react";
 import { getPaletteFromMood } from "../utils/MoodToPalette";
+import { getRandomPalette } from "../utils/getRandomPalette";
+import ColorBlock from "../components/ColorBlock";
 import "../styles/PaletteDisplay.css";
 
-export default function PaletteDisplay({ mood, mode }) {
+export default function PaletteDisplay({ mood, mode, randomTrigger, randomBaseColor }) {
   const [palette, setPalette] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!mood) {
-      setPalette([]);
+    const fetchPalette = async () => {
+      setLoading(true);
       setError(null);
-      return;
-    }
 
-    setLoading(true);
-    setError(null);
+      try {
+        let colors = [];
 
-    getPaletteFromMood(mood, mode)
-      .then((colors) => {
+        if (randomTrigger) {
+          colors = await getRandomPalette(mode, randomBaseColor);
+        } else if (mood) {
+          colors = await getPaletteFromMood(mood, mode);
+        }
+
         setPalette(colors);
-        setLoading(false);
-      })
-      .catch(() => {
+      } catch (err) {
         setError("Failed to load palette");
+      } finally {
         setLoading(false);
-      });
-  }, [mood, mode]);
+      }
+    };
+
+    if (randomTrigger || mood) {
+      fetchPalette();
+    } else {
+      setPalette([]);
+    }
+  }, [mood, mode, randomTrigger]);
 
   if (loading)
     return (
@@ -36,12 +46,14 @@ export default function PaletteDisplay({ mood, mode }) {
         Loading palette...
       </div>
     );
+
   if (error)
     return (
       <div style={{ color: "red", textAlign: "center", marginTop: 40 }}>
         {error}
       </div>
     );
+
   if (!palette.length)
     return (
       <div
@@ -52,23 +64,33 @@ export default function PaletteDisplay({ mood, mode }) {
           color: "#666",
         }}
       >
-        Enter a mood to generate a palette
+        Enter a mood or generate a random palette
       </div>
     );
 
+  const handleSavePalette = () => {
+  if (!palette || palette.length === 0) return;
+
+  const existing = JSON.parse(localStorage.getItem("savedPalettes")) || [];
+  const newSaved = [...existing, palette];
+  localStorage.setItem("savedPalettes", JSON.stringify(newSaved));
+};
+
   return (
-    <div className="palette-display-container">
+    <div className="palette-display-wrapper">
+      <div className="palette-display-container">
       {palette.map((color, index) => (
-        <div
-          key={index}
-          className="color-block"
-          style={{
-            backgroundColor: color,
-            boxShadow: `0 8px 18px ${color}70`,
-          }}
-          title={color}
-        />
+        <ColorBlock key={index} hex={color} />
       ))}
+      </div>
+
+        {palette.length > 0 && (
+    <div className="save-button-wrapper">
+      <button onClick={handleSavePalette} className="save-button">
+        Save Palette
+      </button>
+    </div>
+    )}
     </div>
   );
 }

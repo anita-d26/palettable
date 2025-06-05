@@ -1,9 +1,8 @@
 // PaletteType.jsx - to select type of color palette
 
-import React from "react";
 import "../styles/PaletteType.css";
 
-export default function PaletteType({ mode, setMode, modePreviewColors }) {
+export default function PaletteType({ mode, setMode, modePreviewColors, disabled }) {
   return (
     <div className="palette-type-container">
       <label className="palette-type-label">Palette Style:</label>
@@ -11,8 +10,11 @@ export default function PaletteType({ mode, setMode, modePreviewColors }) {
         {Object.keys(modePreviewColors).map((m) => (
           <div
             key={m}
-            onClick={() => setMode(m)}
-            className={`palette-type-item ${mode === m ? "active" : ""}`}
+            onClick={() => {
+              if (!disabled) setMode(m);
+            }}
+            className={`palette-type-item ${mode === m ? "active" : ""} ${disabled ? "disabled" : ""}`}
+            style={{ cursor: disabled ? "not-allowed" : "pointer" }}
           >
             <div className="palette-type-name">{m}</div>
             <div className="color-preview">

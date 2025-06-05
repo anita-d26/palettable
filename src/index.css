@@ -1,39 +1,29 @@
+/* index.css - global styles (font/button) */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: #213547;
+  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: flex-start; 
+  align-items: flex-start; 
   min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #d7e1ff 100%);
+  margin: 0;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* ====  Button ===== */
 
 button {
   border-radius: 8px;
@@ -42,19 +32,23 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: white;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(101, 116, 255, 0.7);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+@media (max-width: 600px){
   :root {
     color: #213547;
     background-color: #ffffff;

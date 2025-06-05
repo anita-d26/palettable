@@ -1,0 +1,52 @@
+/* app.css - layout and container styles */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 80vh;
+  box-sizing: border-box;
+}
+
+/* ====  Main Layout Styles ===== */
+
+.main-content {
+  margin-top: 60px;
+  max-width: 900px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  flex: 1;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .main-content {
+    margin-top: 50px;
+    padding: 15px 10px;
+  }
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #333;
+  width: 100%;
+  margin-top: auto;
+}

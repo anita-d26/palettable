@@ -1,57 +1,77 @@
 // HomePage.jsx - home page
 
-import React, { useState } from 'react';
-import PaletteDisplay from '../components/PaletteDisplay';
+import React, { useState } from "react";
+import PaletteDisplay from "../components/PaletteDisplay";
 import PaletteType from "../components/PaletteType";
 import "../styles/HomePage.css";
+import "../styles/NavBar.css";
 
 export default function HomePage() {
   const [mood, setMood] = useState("");
   const [mode, setMode] = useState("analogic");
-
-  const modes = [
-    "analogic",
-    "monochrome",
-    "complement",
-    "triad",
-  ];
+  const [randomBaseColor, setRandomBaseColor] = useState(null);
+  const [randomTrigger, setRandomTrigger] = useState(null);
 
   const modePreviewColors = {
-    analogic: ["#87baab", "#a8d5bb", "#d4eac8"],
     monochrome: ["#512d38", "#633745", "#755253"],
-    "monochrome-dark": ["#2c1e1f", "#3e2a2b", "#4f393a"],
-    "monochrome-light": ["#f4bfdb", "#ffe9f3", "#fff5f9"],
+    analogic: ["#87baab", "#a8d5bb", "#d4eac8"],
     complement: ["#b27092", "#70b28f"],
-    triad: ["#b27092", "#70b28f", "#b2b270"],
     "analogic-complement": ["#87baab", "#a8d5bb", "#d4eac8", "#ffcfdf"],
+    triad: ["#b27092", "#70b28f", "#b2b270"],
   };
 
-  const handleRandomizeMode = () => {
-    const randomIndex = Math.floor(Math.random() * modes.length);
-    setMode(modes[randomIndex]);
+  const handleMoodChange = (e) => {
+    setMood(e.target.value);
+    setRandomTrigger(null);
+  };
+
+  const handleModeChange = (newMode) => {
+    setMode(newMode);
+  };
+
+  const handleRandomizeColors = () => {
+    const randomHex = Math.floor(Math.random() * 0xffffff)
+      .toString(16)
+      .padStart(6, "0");
+
+    setRandomBaseColor(randomHex);
+    setRandomTrigger(Date.now());
+    setMood("");
   };
 
   return (
-    <div className="homepage-container">
-      <h1 className="homepage-title">Palettable</h1>
-      <input
-        type="text"
-        placeholder="Enter a mood (e.g., serene, electric)"
-        value={mood}
-        onChange={(e) => setMood(e.target.value)}
-        className="mood-input"
-      />
-      <div className="controls-container">
-        <PaletteType
+    <div className="app">
+      <main className="main-content">
+        <div className="mood-bar-container">
+          <input
+            type="text"
+            placeholder="Enter a mood..."
+            value={mood}
+            onChange={handleMoodChange}
+            className="mood-input"
+          />
+          <button onClick={handleRandomizeColors} className="randomize-button">
+            Generate Random Palette
+          </button>
+        </div>
+
+        <div className="controls-container">
+          <PaletteType
+            mode={mode}
+            setMode={handleModeChange}
+            modePreviewColors={modePreviewColors}
+          />
+        </div>
+
+        <PaletteDisplay
+          mood={mood}
           mode={mode}
-          setMode={setMode}
-          modePreviewColors={modePreviewColors}
+          randomTrigger={randomTrigger}
+          randomBaseColor={randomBaseColor}
         />
-        <button onClick={handleRandomizeMode} className="randomize-button">
-          Randomize Palette Type
-        </button>
-      </div>
-      <PaletteDisplay mood={mood} mode={mode} />
+      </main>
+
+      <footer className="footer">© 2025 Anita Daniel</footer>
     </div>
   );
 }

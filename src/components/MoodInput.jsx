@@ -1,5 +1,6 @@
 // MoodInput.jsx - input for mood/description
 
+import React, { useState } from "react";
 import MoodToPalette from "../utils/MoodToPalette";
 
 export default function MoodInput() {

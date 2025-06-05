@@ -1,0 +1,42 @@
+/* ColorBlock.css */
+
+.color-block-wrapper {
+  position: relative;
+  text-align: center;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.color-block {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.color-block-wrapper:hover .color-block {
+  transform: scale(1.05);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.color-block-wrapper:hover .tooltip {
+  opacity: 1;
+}

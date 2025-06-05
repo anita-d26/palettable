@@ -30,23 +30,41 @@ export async function getPaletteFromMood(mood, mode = "analogic") {
     enchanted: "#7b2cbf",
     futuristic: "#5bc0eb",
     celestial: "#6a4c93",
-    default: "#512d38"
+    anxious: "#c44536",
+    peaceful: "#bfd7ea",
+    inspired: "#fcbf49",
+    determined: "#6a994e",
+    confident: "#3a86ff",
+    overwhelmed: "#9e2a2b",
+    affectionate: "#ffcad4",
+    curious: "#d0f4de",
+    focused: "#264653",
+    frustrated: "#d62828",
+    passionate: "#e63946",
+    relaxed: "#bee1e6",
+    sensitive: "#f5c7b8",
+    lonely: "#495867",
+    empowered: "#ef476f",
+    surprised: "#ffd166",
+    cautious: "#f4a261",
+    tired: "#b5b5b5",
+    silly: "#f7aef8",
+    default: "#512d38",
+    sad: "#0071b6"
   };
 
-  // Determine number of colors to request based on palette mode
+  // number of colors based on palette mode
   const countByMode = {
     complement: 2,
     triad: 3,
     monochrome: 5,
-    "monochrome-dark": 5,
-    "monochrome-light": 5,
     analogic: 5,
     "analogic-complement": 5,
   };
 
   const baseColor = moodColorMap[mood.toLowerCase()] || moodColorMap.default;
 
-  // Fallback to 5 if mode not in countByMode
+  // default 5
   const count = countByMode[mode] || 5;
 
   try {

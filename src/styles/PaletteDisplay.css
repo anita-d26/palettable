@@ -1,4 +1,5 @@
 /* PaletteDisplay.css */
+
 .palette-display-container {
   display: flex;
   gap: 14px;
@@ -7,16 +8,53 @@
   margin-top: 30px;
 }
 
+.saved-palette {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
 .color-block {
-  width: 70px;
-  height: 70px;
-  border-radius: 14px;
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
   border: 2px solid #ddd;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease;
   cursor: default;
 }
 
-.color-block:hover {
-  transform: scale(1.15);
+.color-block:hover .color-hex {
+  opacity: 1;
+}
+
+.color-hex {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.save-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.save-button {
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #1a5cd8;
 }
