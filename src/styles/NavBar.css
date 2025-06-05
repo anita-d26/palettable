@@ -13,13 +13,6 @@
     position: sticky;
 }
 
-.navbar-logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-}
-
 .navbar-menu {
   list-style: none;
   display: flex;
@@ -46,9 +39,5 @@
 
   .navbar-menu {
     gap: 1rem;
-  }
-
-  .navbar-logo {
-    font-size: 1.25rem;
   }
 }

@@ -1,4 +1,4 @@
-// MoodInput.jsx - input for mood/description
+// MoodInput.jsx - input for mood/description to generate palette
 
 import React, { useState } from "react";
 import MoodToPalette from "../utils/MoodToPalette";

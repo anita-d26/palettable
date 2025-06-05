@@ -30,7 +30,6 @@ export default function PaletteDisplay({ mood, mode, randomTrigger, randomBaseCo
         if (onColorsChange) {
           onColorsChange(colors);
         }
-
       } catch (err) {
         setError("Failed to load palette");
       } finally {
@@ -59,43 +58,13 @@ export default function PaletteDisplay({ mood, mode, randomTrigger, randomBaseCo
       </div>
     );
 
-  if (!palette.length)
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: 40,
-          fontWeight: "600",
-          color: "#666",
-        }}
-      >
-        Enter a mood or generate a random palette
-      </div>
-    );
-
-  const handleSavePalette = () => {
-  if (!palette || palette.length === 0) return;
-
-  const existing = JSON.parse(localStorage.getItem("savedPalettes")) || [];
-  const newSaved = [...existing, palette];
-  localStorage.setItem("savedPalettes", JSON.stringify(newSaved));
-};
-
   return (
     <div className="palette-display-wrapper">
       <div className="palette-display-container">
-      {palette.map((color, index) => (
-        <ColorBlock key={index} hex={color} />
-      ))}
+        {palette.map((color, index) => (
+          <ColorBlock key={index} hex={color} />
+        ))}
       </div>
-
-        {palette.length > 0 && (
-    <div className="save-button-wrapper">
-      <button onClick={handleSavePalette} className="save-button">
-        Save Palette
-      </button>
-    </div>
-    )}
     </div>
   );
 }

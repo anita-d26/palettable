@@ -1,4 +1,4 @@
-// ColorBlock.jsx - color identification on hover
+// ColorBlock.jsx - color identification on hover and copy hex to clipboard
 
 import React, { useState } from "react";
 import "../styles/ColorBlock.css";

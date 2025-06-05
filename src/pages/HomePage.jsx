@@ -1,4 +1,4 @@
-// HomePage.jsx - home page
+// HomePage.jsx - home page, saves
 
 import React, { useState } from "react";
 import PaletteDisplay from "../components/PaletteDisplay";
@@ -38,25 +38,34 @@ export default function HomePage() {
       .toString(16)
       .padStart(6, "0");
 
-    setRandomBaseColor(randomHex);
-    setRandomTrigger(Date.now());
-    setMood("");
-  };
+      setRandomBaseColor(randomHex);
+      setRandomTrigger(Date.now());
+      setMood("");
+    };
 
   const handleSave = async () => {
-    if (!mood || colors.length === 0) {
-      setFeedback("Please enter a mood and generate a palette first.");
+    if (colors.length === 0) {
+      setFeedback("Please generate a palette first.");
       return;
     }
 
-    await savePalette({
-      mood: mood.toLowerCase(),
-      paletteType: mode,
-      hexValues: colors
-    });
+    if (!mood) {
+      setFeedback("Tip: Add a mood to better organize your palette.");
+    }
 
-    setFeedback("Palette saved! 🎉");
-    setTimeout(() => setFeedback(""), 3000);
+    try {
+      await savePalette({
+        mood: mood.toLowerCase(),
+        paletteType: mode,
+        hexValues: colors,
+      });
+
+      setFeedback("Palette saved! 🎉");
+      setTimeout(() => setFeedback(""), 3000);
+    } catch (error) {
+      console.error("Error saving palette:", error);
+      setFeedback("Failed to save palette.");
+    }
   };
 
   const handleColorsChange = (newColors) => {
@@ -65,7 +74,7 @@ export default function HomePage() {
 
   return (
     <div className="app">
-      <main className="main-content">
+      <main className="container">
         <div className="mood-bar-container">
           <input
             type="text"
@@ -79,7 +88,7 @@ export default function HomePage() {
           </button>
         </div>
 
-        <div className="controls-container">
+        <div className="controls-wrapper">
           <PaletteType
             mode={mode}
             setMode={handleModeChange}
@@ -94,8 +103,14 @@ export default function HomePage() {
           randomBaseColor={randomBaseColor}
           onColorsChange={handleColorsChange}
         />
-      </main>
 
+        <div className="controls-wrapper">
+          <button onClick={handleSave} className="save-button">
+            Save Palette
+          </button>
+          {feedback && <p className="feedback-message">{feedback}</p>}
+        </div>
+      </main>
       <footer className="footer">© 2025 Anita Daniel</footer>
     </div>
   );

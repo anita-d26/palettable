@@ -3,11 +3,13 @@
 import { db } from "../firebase";
 import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
 
+const PALETTE_COLLECTION = "palettes";
+
 export const savePalette = async (paletteData) => {
   try {
-    const docRef = await addDoc(collection(db, "palettes"), {
+    const docRef = await addDoc(collection(db, PALETTE_COLLECTION), {
       ...paletteData,
-      timestamp: new Date()
+      timestamp: new Date(),
     });
     console.log("Palette saved with ID: ", docRef.id);
   } catch (error) {
@@ -17,7 +19,7 @@ export const savePalette = async (paletteData) => {
 
 export const getPalettes = async () => {
   try {
-    const snapshot = await getDocs(collection(db, "palettes"));
+    const snapshot = await getDocs(collection(db, PALETTE_COLLECTION));
     return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   } catch (error) {
     console.error("Error fetching palettes: ", error);
@@ -25,14 +27,12 @@ export const getPalettes = async () => {
   }
 };
 
-export const clearPalettes = async () => {
-    try {
-    const snapshot = await getDocs(collection(db, "palettes"));
-    const deletions = snapshot.docs.map((doc) =>
-    deleteDoc(doc.ref)
-  );
-  await Promise.all(deletions);
-  console.log("All palettes deleted");
+export const clearAllPalettes = async () => {
+  try {
+    const snapshot = await getDocs(collection(db, PALETTE_COLLECTION));
+    const deletions = snapshot.docs.map((doc) => deleteDoc(doc.ref));
+    await Promise.all(deletions);
+    console.log("All palettes deleted");
   } catch (error) {
     console.error("Error clearing palettes:", error);
   }
