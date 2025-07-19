@@ -1,6 +1,6 @@
 # Palettable
 
-Palettable is a mood-based color palette generator that helps users explore and create beautiful color palettes based on their mood. Whether for designer or just people looking for inspiration, Palettable turns feelings into harmonious color schemes.
+Palettable is a mood-based color palette generator that helps users explore and create fun color palettes based on their mood. Whether for designer or just people looking for inspiration, Palettable turns feelings into harmonious color schemes.
 
 
 ## Features
@@ -29,40 +29,35 @@ Palettable maps moods to base colors using a custom `moodColorMap`. It then gene
 
 
 ## Project Structure
+
 palettable/
 ├── public/
 ├── src/
 │   ├── assets/
 │   │   └── react.svg
-│   │
 │   ├── components/
 │   │   ├── ColorBlock.jsx
 │   │   ├── MoodInput.jsx
 │   │   ├── NavBar.jsx
 │   │   ├── PaletteDisplay.jsx
 │   │   └── PaletteType.jsx
-│   │
 │   ├── pages/
 │   │   ├── AboutPage.jsx
 │   │   └── HomePage.jsx
 │   │   └── ProfilePage.jsx
-│   │
 │   ├── styles/
 │   │   ├── ColorBlock.jsx
 │   │   ├── MoodInput.jsx
 │   │   ├── NavBar.jsx
 │   │   ├── PaletteDisplay.jsx
 │   │   └── PaletteType.jsx
-│   │
 │   ├── utils/
 │   │   ├── getRandomPalette.js
 │   │   └── MoodToPalette.js
-│   │
 │   ├── App.css
 │   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx
-│
 ├── .env
 ├── .gitignore
 ├── eslint.config.js
@@ -72,24 +67,9 @@ palettable/
 └── vite.config.js
 
 
-## Getting Started
-
-1. Clone the repo
-    git clone https://github.com/yourusername/palettable.git
-
-2. cd palettable
-
-3. Install dependencies
-    npm install
-
-4. Set up Firebase
-
-5. Run the development server
-    npm run dev
-    Visit http://localhost:5173 to view the app!
+## Deployment
+https://palettable-anita-daniels-projects.vercel.app/
 
 
 ## Acknowledgments
-
-Anita Daniel
-Created for HCDE 438 
+Created for HCDE 438 by Anita Daniel
