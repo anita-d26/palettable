@@ -1,4 +1,4 @@
-/* index.css - global styles (font/button) */
+/* index.css - Global styles for fonts, body layout, and buttons */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -14,17 +14,40 @@
 
 body {
   display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start; 
+  flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f4ff 0%, #d7e1ff 100%);
   margin: 0;
-  padding-left: 20px;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f1f4f9, #e2ebf6);
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+}
+
+/* Root container layout */
+#root {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
-/* ====  Button ===== */
+/* Container wrapper for pages */
+.container {
+  padding: 2rem 1rem;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 
+/* Buttons */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -48,14 +71,24 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (max-width: 600px){
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 50px;
+    padding: 15px 10px;
+  }
+}
+
+@media (max-width: 600px) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }

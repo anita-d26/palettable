@@ -1,52 +1,73 @@
-/* NavBar.css */
+/* NavBar.css - styles for the top navigation bar */
 
+/* Main navbar container */
 .navbar {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    padding: 0.75rem 1.5rem;
-    color: white;
-    top: 0;
-    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.3);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Purple to blue gradient */
+  padding: 0.75rem 1.5rem;                                      /* Vertical and horizontal padding */
+  color: white;                                                 /* White text color */
+  top: 0;                                                      /* Stick to top */
+  box-shadow: 0 2px 8px rgba(37, 117, 252, 0.3);               /* Soft blue shadow */
+  
+  display: flex;                                               /* Flexbox layout */
+  align-items: center;                                         /* Vertical center */
+  justify-content: space-between;                              /* Space between logo and menu */
+  position: sticky;                                            /* Sticks to viewport top on scroll */
 }
 
-/* Palettable */
+/* Logo/brand name link */
 .nav-logo {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.5rem;
+  color: white;                                                /* White text */
+  text-decoration: none;                                       /* No underline */
+  font-weight: bold;                                           /* Bold font */
+  font-size: 1.5rem;                                           /* Larger font size */
 }
 
+/* Navigation menu container */
 .navbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+  list-style: none;                                            /* Remove bullet points */
+  display: flex;                                               /* Horizontal menu */
+  gap: 2rem;                                                  /* Space between menu items */
+  margin: 0;                                                  /* Remove default margin */
+  padding: 0;                                                 /* Remove default padding */
 }
 
+/* Individual navigation links */
 .navbar-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  color: white;                                               /* White text */
+  text-decoration: none;                                      /* No underline */
+  font-weight: 600;                                           /* Semi-bold */
+  transition: color 0.3s ease;                               /* Smooth color transition on hover */
 }
 
+/* Hover effect for nav links */
 .navbar-link:hover {
-  color: #a8d5ff;
+  color: #a8d5ff;                                            /* Light blue on hover */
 }
 
-/* Responsive */
+/* Responsive adjustments for small screens */
 @media (max-width: 600px) {
   .navbar {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;                                    /* Slightly smaller padding */
   }
 
   .navbar-menu {
-    gap: 1rem;
+    gap: 1rem;                                               /* Less space between items */
   }
+}
+
+/* Full width for navbar and footer */
+.navbar, .footer {
+  width: 100%;                                               /* Stretch full viewport width */
+}
+
+/* Content wrapper for navbar and footer - centers content and controls max width */
+.navbar-content, .footer-content {
+  max-width: 1200px;                                         /* Maximum width */
+  margin: 0 auto;                                            /* Center horizontally */
+  padding: 0 1rem;                                           /* Horizontal padding */
+  box-sizing: border-box;                                    /* Include padding in width */
+  display: flex;                                            /* Flex container */
+  justify-content: space-between;                           /* Space between children */
+  align-items: center;                                      /* Vertically center children */
+  color: #333;                                              /* Dark gray text (likely for footer) */
 }

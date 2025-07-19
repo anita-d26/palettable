@@ -1,60 +1,69 @@
-/* PaletteDisplay.css */
+/* PaletteDisplay.css - styles for the palette display component */
 
+/* Main container for the palette display */
 .palette-display-container {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
+  border: 2px solid transparent;            /* Transparent border for spacing/layout */
+  border-radius: 12px;                        /* Rounded corners */
+  padding: 12px;                             /* Inner spacing */
+  background-color: white;                   /* White background for contrast */
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);     /* Soft subtle shadow */
+  transition: all 0.2s ease-in-out;          /* Smooth transitions on state changes */
 }
 
+/* Container for saved palette colors displayed in a row */
 .saved-palette {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  display: flex;                             /* Flex layout for horizontal alignment */
+  gap: 10px;                                /* Space between color blocks */
+  margin-bottom: 15px;                      /* Space below palette */
 }
 
+/* Each individual color block representing a color */
 .color-block {
-  width: 100px;
-  height: 100px;
-  border-radius: 16px;
-  border: 2px solid #ddd;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease;
-  cursor: default;
+  width: 100%;                             /* Fixed width */
+  height: 100px;                            /* Fixed height */
+  border-radius: 16px;                      /* Rounded corners */
+  border: 2px solid #ddd;                   /* Light gray border */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); /* Elevated shadow for depth */
+  transition: transform 0.3s ease;          /* Smooth transform on hover */
+  cursor: default;                          /* Default cursor (non-clickable) */
 }
 
+/* Reveal hex code text on hover over the color block */
 .color-block:hover .color-hex {
-  opacity: 1;
+  opacity: 1;                              /* Make hex text fully visible */
 }
 
+/* Hex code label shown on color block */
 .color-hex {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: #fff;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute;                      /* Positioned relative to nearest positioned parent */
+  bottom: 10px;                           /* Positioned 10px from bottom */
+  left: 10px;                             /* Positioned 10px from left */
+  color: #fff;                           /* White text for contrast */
+  font-size: 14px;                       /* Small readable font size */
+  opacity: 0;                           /* Hidden by default */
+  transition: opacity 0.3s;             /* Smooth fade in/out */
 }
 
+/* Wrapper for save button, centers button horizontally */
 .save-button-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  display: flex;                         /* Flex container */
+  justify-content: center;               /* Center horizontally */
+  margin-top: 2rem;                      /* Space above the button */
 }
 
+/* Save button styles */
 .save-button {
-  background-color: #2575fc;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #2575fc;             /* Bright blue background */
+  color: white;                         /* White text */
+  border: none;                         /* No border */
+  padding: 0.75rem 1.5rem;              /* Padding for comfortable click target */
+  font-weight: 600;                     /* Semi-bold font */
+  border-radius: 8px;                   /* Rounded corners */
+  cursor: pointer;                     /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background color change on hover */
 }
 
+/* Hover state for save button */
 .save-button:hover {
-  background-color: #1a5cd8;
+  background-color: #1a5cd8;            /* Darker blue for hover feedback */
 }

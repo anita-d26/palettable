@@ -1,7 +1,8 @@
-// AboutPage.jsx - description about how tool works
+// AboutPage.jsx - Displays a description of how the Palettable tool works
 
 const AboutPage = () => {
   return (
+    // Main wrapper with background and text color styling
     <main className="bg-[#ffe9f3] text-[#512d38]">
       <div className="container">
         <h1 className="text-4xl font-bold mb-6">About Palettable</h1>
@@ -57,4 +58,5 @@ const AboutPage = () => {
   );
 };
 
+// Export component
 export default AboutPage;

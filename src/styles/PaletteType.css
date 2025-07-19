@@ -1,64 +1,73 @@
-/* PaletteType.css */
+/* PaletteType.css - styles for palette harmony selection UI */
 
+/* Container for the whole palette type selector */
 .palette-type-container {
   margin-bottom: 10px;
-  flex: 1;
-  min-width: 280px;
+  flex: 1;            /* Allow to grow/shrink in flex layouts */
+  min-width: 280px;   /* Minimum width for usability */
 }
 
+/* Label/title for the palette type section */
 .palette-type-label {
-  font-weight: 700;
-  font-size: 14px;
-  color: #444;
+  font-weight: 700;   /* Bold text */
+  font-size: 14px;    /* Slightly smaller font */
+  color: #444;        /* Dark gray text */
 }
 
+/* List container holding all palette type options */
 .palette-type-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 12px;
+  display: flex;      /* Flex container for horizontal layout */
+  flex-wrap: wrap;    /* Allow items to wrap to next line */
+  gap: 14px;          /* Space between items */
+  margin-top: 12px;   /* Space above the list */
 }
 
+/* Each palette type option */
 .palette-type-item {
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  cursor: pointer;
-  padding: 10px;
-  min-width: 110px;
-  text-align: center;
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  user-select: none;
+  border: 1px solid #ccc;             /* Light gray border */
+  border-radius: 12px;                /* Rounded corners */
+  cursor: pointer;                   /* Pointer cursor on hover */
+  padding: 10px;                     /* Inner spacing */
+  min-width: 110px;                  /* Minimum clickable size */
+  text-align: center;                /* Center text inside */
+  background: #fff;                  /* White background */
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05); /* Subtle shadow for slight depth */
+  transition: all 0.3s ease;         /* Smooth transitions on hover and active */
+  user-select: none;                 /* Prevent text selection on click */
 }
 
+/* Active (selected) palette type styling */
 .palette-type-item.active {
-  border: 3px solid #6a11cb;
-  background: #f0eaff;
-  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.3);
+  border: 3px solid #6a11cb;          /* Bold purple border */
+  background: #f0eaff;                 /* Light purple background */
+  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.3); /* Stronger purple glow */
 }
 
+/* Hover effect for non-active items */
 .palette-type-item:hover:not(.active) {
-  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.15);
-  background-color: #faf5ff;
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.15); /* Light purple shadow */
+  background-color: #faf5ff;                        /* Very light purple background */
 }
 
+/* Name label inside each palette type option */
 .palette-type-name {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #555;
+  font-size: 13px;     /* Smaller font size */
+  font-weight: 600;    /* Semi-bold */
+  margin-bottom: 6px;  /* Space below the name */
+  color: #555;         /* Medium gray text */
 }
 
+/* Container for color swatches preview */
 .color-preview {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
+  display: flex;       /* Align swatches in a row */
+  gap: 6px;            /* Space between swatches */
+  justify-content: center; /* Center swatches horizontally */
 }
 
+/* Each individual color square swatch for palette type */
 .color-square {
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  width: 18px;         /* Fixed width */
+  height: 18px;        /* Fixed height */
+  border-radius: 5px;  /* Rounded corners */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* Subtle shadow for elevation */
 }

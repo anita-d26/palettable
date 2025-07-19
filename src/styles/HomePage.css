@@ -1,83 +1,88 @@
-/* HomePage.css */
+/* HomePage.css - styles for the HomePage component */
 
+/* Title at the top of the page */
 .homepage-title {
-  text-align: center;
-  font-weight: 800;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: white;
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-  -webkit-text-fill-color: transparent;
+  text-align: center;                                 /* Center text horizontally */
+  font-weight: 800;                                   /* Extra bold */
+  font-size: 2.5rem;                                 /* Large font size */
+  margin-bottom: 20px;                               /* Space below title */
+  color: white;                                      /* White text color (but overridden below) */
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Gradient text background */
+  -webkit-text-fill-color: transparent;              /* Make text fill transparent for gradient effect */
 }
 
-/* Mood input */
+/* Mood input text box */
 .mood-input {
-  padding: 14px 16px;
-  width: 100%;
-  border-radius: 12px;
-  border: none;
-  box-shadow: 0 4px 10px rgba(101, 116, 255, 0.15);
-  font-size: 18px;
-  font-weight: 600;
-  outline: none;
-  margin-bottom: 30px;
-  transition: box-shadow 0.3s ease-in-out;
+  padding: 14px 16px;                                /* Comfortable padding */
+  width: 100%;                                       /* Full width of container */
+  border-radius: 12px;                               /* Rounded corners */
+  border: none;                                      /* No border */
+  box-shadow: 0 4px 10px rgba(101, 116, 255, 0.15); /* Subtle blue shadow */
+  font-size: 18px;                                   /* Larger font size */
+  font-weight: 600;                                  /* Semi-bold */
+  outline: none;                                     /* Remove default outline */
+  margin-bottom: 30px;                               /* Space below input */
+  transition: box-shadow 0.3s ease-in-out;           /* Smooth shadow change on focus */
 }
 
+/* Mood input focus state */
 .mood-input:focus {
-  box-shadow: 0 6px 20px rgba(101, 116, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(101, 116, 255, 0.4);  /* Stronger shadow glow on focus */
 }
 
-/* controls */
+/* Container for control elements */
 .controls-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: flex;                                     /* Flexbox layout */
+  justify-content: space-between;                    /* Space between children */
+  align-items: center;                               /* Vertically center children */
+  flex-wrap: wrap;                                   /* Wrap to next line if needed */
+  gap: 1rem;                                         /* Gap between controls */
+  margin-bottom: 2rem;                               /* Space below controls */
 }
 
-/* button styling */
-
+/* General button styling inside controls and specifically randomize button */
 .controls-wrapper button,
 .randomize-button {
-  padding: 12px 24px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 16px;
-  border: none;
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-  color: white;
-  box-shadow: 0 8px 15px rgba(101, 116, 255, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  user-select: none;
+  padding: 12px 24px;                                /* Button padding */
+  border-radius: 12px;                               /* Rounded corners */
+  cursor: pointer;                                   /* Pointer cursor */
+  font-weight: 700;                                  /* Bold font */
+  font-size: 16px;                                   /* Medium font size */
+  border: none;                                      /* No border */
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Purple to blue gradient */
+  color: white;                                      /* White text */
+  box-shadow: 0 8px 15px rgba(101, 116, 255, 0.4);  /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transform and shadow */
+  user-select: none;                                 /* Prevent text selection */
 }
 
+/* Hover effect for randomize button */
 .randomize-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(101, 116, 255, 0.7);
+  transform: scale(1.05);                            /* Slight scale up */
+  box-shadow: 0 12px 25px rgba(101, 116, 255, 0.7); /* Stronger glow */
 }
 
+/* Active (pressed) state for randomize button */
 .randomize-button:active {
-  transform: scale(0.95);
+  transform: scale(0.95);                            /* Slight scale down */
 }
 
-/* button responsiveness */
+/* Container for mood input and randomize button in a row */
 .mood-bar-container {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 30px;
+  display: flex;                                     /* Flexbox layout */
+  gap: 12px;                                         /* Space between input and button */
+  align-items: center;                               /* Vertically center */
+  margin-bottom: 30px;                               /* Space below container */
 }
 
+/* Mood input inside mood-bar container takes full remaining space */
 .mood-bar-container .mood-input {
-  flex: 1;
-  margin-bottom: 0;
+  flex: 1;                                          /* Grow to fill space */
+  margin-bottom: 0;                                 /* Remove bottom margin */
 }
 
+/* Randomize button inside mood-bar container */
 .mood-bar-container .randomize-button {
-  flex-shrink: 0;
-  white-space: nowrap;
+  flex-shrink: 0;                                   /* Do not shrink */
+  white-space: nowrap;                              /* Prevent button text wrapping */
 }

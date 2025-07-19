@@ -6,7 +6,7 @@ import "../styles/NavBar.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
-        <div className="nav-left">
+        <div className="nav-content">
         <Link to="/" className="nav-logo">Palettable</Link>
         </div>
 

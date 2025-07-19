@@ -1,44 +1,47 @@
-/* ColorBlock.css */
+/* ColorBlock.css - styles for individual color blocks with tooltip */
 
+/* Wrapper around each color block for layout and interaction */
 .color-block-wrapper { 
-  position: relative;
-  text-align: center;
-  margin: 0 10px;
-  cursor: pointer;
+  position: relative;              /* For positioning tooltip absolutely inside */
+  text-align: center;              /* Center any inline text inside wrapper */
+  margin: 0 10px;                  /* Horizontal margin between blocks */
+  cursor: pointer;                /* Pointer cursor to indicate interactivity */
 }
 
+/* The visible color square */
 .color-block {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
+  width: 60px;                    /* Fixed width */
+  height: 60px;                   /* Fixed height */
+  border-radius: 8px;             /* Rounded corners */
+  box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+  transition: transform 0.2s ease; /* Smooth scaling transition */
 }
 
+/* Scale up color block slightly on hover */
 .color-block-wrapper:hover .color-block {
   transform: scale(1.05);
 }
 
-/* Tooltip */
-
+/* Tooltip styling shown below the color block */
 .tooltip {
-  position: absolute;
-  bottom: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.75);
-  color: white;
-  padding: 6px 10px;
-  font-size: 12px;
-  border-radius: 4px;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  text-align: center;
-  line-height: 1.4;
+  position: absolute;              /* Position relative to wrapper */
+  bottom: -45px;                  /* Positioned below the block */
+  left: 50%;                     /* Horizontally center */
+  transform: translateX(-50%);    /* Center the tooltip exactly */
+  background: rgba(0,0,0,0.75);   /* Semi-transparent black background */
+  color: white;                   /* White text */
+  padding: 6px 10px;              /* Padding around text */
+  font-size: 12px;                /* Small font */
+  border-radius: 4px;             /* Rounded corners */
+  white-space: nowrap;            /* Prevent line breaks */
+  opacity: 0;                    /* Initially hidden */
+  transition: opacity 0.3s ease;  /* Smooth fade in/out */
+  pointer-events: none;           /* Tooltip doesn’t interfere with mouse events */
+  text-align: center;             /* Center text inside tooltip */
+  line-height: 1.4;               /* Comfortable line height */
 }
 
+/* Show tooltip on hover of the color block wrapper */
 .color-block-wrapper:hover .tooltip {
-  opacity: 1;
+  opacity: 1;                    /* Fully visible */
 }
